@@ -22,7 +22,7 @@ extension Selector {
     static let didFailMonitoring = #selector(CLLocationManagerDelegate.locationManager(_:monitoringDidFailFor:withError:))
     #endif
     
-    #if os(iOS)
+    #if os(iOS) && !targetEnvironment(macCatalyst)
     static let didRangeBeacons = #selector(CLLocationManagerDelegate.locationManager(_:didRangeBeacons:in:))
     static let didUpdateHeading = #selector(CLLocationManagerDelegate.locationManager(_:didUpdateHeading:))
     static let didVisit = #selector(CLLocationManagerDelegate.locationManager(_:didVisit:))

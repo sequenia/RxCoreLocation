@@ -92,7 +92,7 @@ extension Reactive where Base: CLLocationManager {
     }
     #endif
     /// Reactive wrapper for `func locationManagerDidPauseLocationUpdates(_ manager: CLLocationManager)`
-    #if os(iOS)
+    #if os(iOS) && !targetEnvironment(macCatalyst)
     public var didPause: ControlEvent<CLVoidEvent> {
         let source: Observable<CLVoidEvent> = delegate.methodInvoked(.didPauseLocationUpdates).map(to: ())
         return ControlEvent(events: source)
